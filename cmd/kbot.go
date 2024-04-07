@@ -15,7 +15,6 @@ import (
 var (
 	// TeleToken bot
 	TeleToken = os.Getenv("TELE_TOKEN")
-	Payload   = ""
 )
 
 // kbotCmd represents the kbot command
