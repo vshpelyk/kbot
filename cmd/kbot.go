@@ -41,7 +41,7 @@ to quickly create a Cobra application.`,
 			return
 		}
 		kbot.Handle(telebot.OnText, func(m telebot.Context) error {
-			log.Print(m.Message(), Payload, m.Text())
+			log.Print(m.Message().Payload, m.Text())
 			payload := m.Message().Payload
 
 			switch payload {
