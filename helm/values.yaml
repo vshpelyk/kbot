@@ -12,7 +12,7 @@ image:
 
 image:
   repository: vshpelyk
-  tag: "v1.2.0-660ae95"
+  tag: "1.2.0-3b27c75"
   arch: amd64
 secret:
   name: "kbot"
