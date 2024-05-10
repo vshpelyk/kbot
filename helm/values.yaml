@@ -11,7 +11,7 @@ image:
 image:
   registry: "ghcr.io"
   repository: vshpelyk/kbot
-  tag: "1.2.1-0a82afc"
+  tag: "v1.2.2-855b54e"
   os: linux
   arch: amd64
 secret:
