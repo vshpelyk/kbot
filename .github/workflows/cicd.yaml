@@ -6,12 +6,19 @@ on:
   push:
     branches:
       - develop
+env:
+  TARGETOS: linux
+  TARGETARCH: amd64
 
 # блок задач який налаштовано на запуск завдання на новій ВМ з останньою версією ubuntu
 jobs:
   ci:
     name: CI
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
 # перший крок задачі дозволить запускати на ранері репозиторій із скриптами для виконання дії. 
     steps:
       - name: Checkout
@@ -21,3 +28,17 @@ jobs:
 # наступним кроком запустимо команду make test, зробимо коміт та подивимось як це працює
       - name: Run test
         run: make test
+# авторизація на GHCR
+
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
+# збираємо образ з використання змінної середовища 
+      - name: Build&Push
+        env:
+          APP: "kbot"
+        run: make image push
