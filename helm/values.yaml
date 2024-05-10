@@ -14,6 +14,7 @@ image:
   repository: vshpelyk
   tag: "1.2.0-3b27c75"
   arch: amd64
+
 secret:
   name: "kbot"
   env: "TELE_TOKEN"
