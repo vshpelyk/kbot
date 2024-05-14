@@ -1,4 +1,5 @@
-FROM golang:1.19 as builder
+ARG name=build
+FROM gquay.io/projectquay/golang:1.20 as builder
 
 WORKDIR /go/src/app
 COPY . .
